@@ -5,6 +5,7 @@ import '../models/item_colection_model.dart';
 import '../widgets/Colection_Items.dart';
 import '../widgets/Colection_item_scroll.dart';
 import '../widgets/News_Tile.dart';
+import '../widgets/News_Tile_Scroll.dart';
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
@@ -31,14 +32,7 @@ class _Home_ScreenState extends State<Home_Screen> {
         children: [
           ColectionItemScroll(),
           SizedBox(height: 20,),
-         Expanded(
-           child: ListView .builder(
-             itemCount: 10,
-             itemBuilder: (context , index){
-              return NewsTile();
-             },
-           ),
-         )
+          NewsTileScroll(),
         ],
       )
 
