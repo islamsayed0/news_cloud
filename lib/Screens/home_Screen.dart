@@ -18,6 +18,8 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 1,
+        backgroundColor: Colors.white,
         centerTitle: true,
         title: Row(
           mainAxisSize: MainAxisSize.min,
@@ -28,10 +30,15 @@ class _Home_ScreenState extends State<Home_Screen> {
         ),
       ),
       body:
-      Column(
-        children: [
-          ColectionItemScroll(),
-          SizedBox(height: 20,),
+      CustomScrollView(
+      slivers: [
+          SliverToBoxAdapter(
+            child: ColectionItemScroll(),
+          ),
+          SliverToBoxAdapter(
+          child:
+          SizedBox(height: 20,)
+          ),
           NewsTileScroll(),
         ],
       )
