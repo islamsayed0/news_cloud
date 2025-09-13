@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/main.dart';
 
 import '../models/item_colection_model.dart';
 import '../widgets/Colection_Items.dart';
 import '../widgets/Colection_item_scroll.dart';
+import '../widgets/News_Tile.dart';
 
 class Home_Screen extends StatefulWidget {
   const Home_Screen({super.key});
@@ -24,7 +26,23 @@ class _Home_ScreenState extends State<Home_Screen> {
           ],
         ),
       ),
-      body:ColectionItemScroll()
+      body:
+      Column(
+        children: [
+          ColectionItemScroll(),
+          SizedBox(height: 20,),
+         Expanded(
+           child: ListView .builder(
+             itemCount: 10,
+             itemBuilder: (context , index){
+              return NewsTile();
+             },
+           ),
+         )
+        ],
+      )
+
+
     );
   }
 
