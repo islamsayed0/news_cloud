@@ -4,6 +4,7 @@ class Colection_Items extends StatelessWidget {
   const Colection_Items({super.key, required this.img, required this.Text_item});
 final String img;
 final String Text_item;
+
   @override
   Widget build(BuildContext context) {
     return Container(

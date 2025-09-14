@@ -24,27 +24,46 @@
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  'أخبار الصباح | رد مباشر من سوريا بعد الضربات الإسرائيلية',
-                  textAlign: TextAlign.right,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Directionality(
+                      textDirection: TextDirection.rtl, // Right-to-Left
+                      child: Text(
+                        "المصدر",
+                        style: TextStyle(
+                          color: Colors.orangeAccent,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      'أخبار الصباح | رد مباشر من سوريا بعد الضربات الإسرائيلية',
+                      textAlign: TextAlign.right,
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
                 child: Text(
-                  "سوريا تعلن ردها المباشر عقب الضربات الجوية الإسرائيلية فجر اليوم\n"
-                      "التوتر يتصاعد في المنطقة مع تبادل الرسائل العسكرية بين الجانبين",
+                  "سوريا تعلن ردها المباشر عقب الضربات الجوية الإسرائيلية فجر اليوم التوتر يتصاعد في المنطقة مع تبادل الرسائل العسكرية بين الجانبين",
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.right,
                   style: const TextStyle(fontSize: 16, color: Colors.black54),
                 ),
+
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 5),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text("التاريخ",textDirection: TextDirection.rtl,style: TextStyle(fontSize: 18),),
+              ),
             ],
           ),
         ),
