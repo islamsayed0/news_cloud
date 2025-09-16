@@ -6,7 +6,7 @@ import 'Colection_Items.dart';
 class ColectionItemScroll extends StatelessWidget {
   const ColectionItemScroll({super.key});
 
-  @override
+    @override
   Widget build(BuildContext context) {
     return  Padding(
       padding: const EdgeInsets.all(8.0),

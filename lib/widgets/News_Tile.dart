@@ -1,8 +1,9 @@
   import 'package:flutter/material.dart';
+  import '../models/ArticlesModle.dart';
 
   class NewsTile extends StatelessWidget {
-    const NewsTile({super.key});
-
+    const NewsTile({super.key, required this.articlesmodle,});
+final Articlesmodle articlesmodle;
     @override
     Widget build(BuildContext context) {
       return   Padding(
@@ -15,12 +16,27 @@
             children: [
               ClipRRect(
                 borderRadius: const BorderRadius.vertical(top: Radius.circular(10)),
-                child: Image.network(
-                  'https://i.ytimg.com/vi/3OE2FQp4q2M/maxresdefault.jpg',
-                  height: 300,
-                  width: double.infinity,
-                  fit: BoxFit.cover,
-                ),
+                child: articlesmodle.imags.isNotEmpty
+                    ? Image.network(
+                        articlesmodle.imags,
+                        height: 300,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) {
+                          return Container(
+                            height: 300,
+                            color: Colors.grey.shade300,
+                            alignment: Alignment.center,
+                            child: const Icon(Icons.broken_image, size: 48),
+                          );
+                        },
+                      )
+                    : Container(
+                        height: 300,
+                        color: Colors.grey.shade300,
+                        alignment: Alignment.center,
+                        child: const Icon(Icons.image_not_supported, size: 48),
+                      ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -30,7 +46,7 @@
                     Directionality(
                       textDirection: TextDirection.rtl, // Right-to-Left
                       child: Text(
-                        "المصدر",
+                        articlesmodle.auther,
                         style: TextStyle(
                           color: Colors.orangeAccent,
                           fontSize: 20,
@@ -38,7 +54,7 @@
                       ),
                     ),
                     Text(
-                      'أخبار الصباح | رد مباشر من سوريا بعد الضربات الإسرائيلية',
+                      articlesmodle.title,
                       textAlign: TextAlign.right,
                       style: const TextStyle(
                         fontSize: 20,
@@ -51,7 +67,7 @@
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4),
                 child: Text(
-                  "سوريا تعلن ردها المباشر عقب الضربات الجوية الإسرائيلية فجر اليوم التوتر يتصاعد في المنطقة مع تبادل الرسائل العسكرية بين الجانبين",
+                  articlesmodle.Subtitle,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.right,
@@ -62,7 +78,7 @@
               const SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text("التاريخ",textDirection: TextDirection.rtl,style: TextStyle(fontSize: 18),),
+                child: Text(articlesmodle.date,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 18),),
               ),
             ],
           ),
