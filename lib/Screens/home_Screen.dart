@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newsapp/main.dart';
-import '../widgets/Colection_Items.dart';
 import '../widgets/Colection_item_scroll.dart';
-import '../widgets/News_Tile.dart';
 import '../widgets/News_Tile_Scroll.dart';
 
 class Home_Screen extends StatefulWidget {
@@ -26,28 +23,42 @@ class _Home_ScreenState extends State<Home_Screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 1,
-        backgroundColor: Colors.white,
+        elevation: 0,
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Colors.black.withOpacity(0.3),
+                Colors.transparent,
+              ],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+        ),
+        backgroundColor: Colors.transparent,
         centerTitle: true,
         title: GestureDetector(
-          onTap: _scrollToTop, // هنا بقى التاب
+          onTap: _scrollToTop,
           child: Row(
+            textDirection: TextDirection.rtl,
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                "News",
-                style: TextStyle(fontSize: 30),
+                "اخبار",
+                style: TextStyle(fontSize: 35,fontFamily: 'logofont'),
               ),
               Text(
-                "Cloud",
-                style: TextStyle(color: Colors.orangeAccent, fontSize: 30),
+                "الشرق",
+                style: TextStyle(color: Colors.orangeAccent, fontSize: 35, fontFamily: 'logofont'),
               )
             ],
           ),
         ),
+
       ),
       body: CustomScrollView(
-        controller: _scrollController, // مهم تربط الكنترولر هنا
+        controller: _scrollController,
         slivers: [
           SliverToBoxAdapter(
             child: ColectionItemScroll(),
