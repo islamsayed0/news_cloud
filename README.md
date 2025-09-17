@@ -11,7 +11,7 @@ Arabic news reader built with Flutter. Browse categorized news by country, with 
 </div>
 
 ## Demo Video
-![Demo Gif](https://s3.ezgif.com/tmp/ezgif-3f24c6809c0d77.gif)
+<img src="https://s3.ezgif.com/tmp/ezgif-3f24c6809c0d77.gif" alt="Demo Gif" width="500">
 ---
 
 ## Features
